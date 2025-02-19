@@ -64,8 +64,8 @@ public class Player : MonoBehaviour
         }
 
         Vector3 direction = targetPoint - point.position;
-      GameObject missile =  Instantiate(nuke, point.position, Quaternion.identity);
-        missile.transform.forward = direction.normalized;
+        
+      GameObject missile =  Instantiate(nuke, point.position, Quaternion.LookRotation(direction));
         missile.GetComponent<Rigidbody>().AddForce(direction.normalized * shootForce, ForceMode.Impulse);
     }
 }

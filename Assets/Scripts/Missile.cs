@@ -7,7 +7,7 @@ public class Missile : MonoBehaviour
 {
     public Rigidbody rb;
     public GameObject explosion;
-    public LayerMask whatSubject;
+    public LayerMask whatSubject, whatPlayer;
 
     public float explosionRange;
     public float explosionForce;
@@ -25,7 +25,7 @@ public class Missile : MonoBehaviour
     }
     void Update()
     {
-        if(collisions > maxCollisions)
+        if (collisions > maxCollisions)
         {
             Explode();
         }
@@ -42,6 +42,14 @@ public class Missile : MonoBehaviour
             if (subjects[i].GetComponent<Rigidbody>())
             {
                 subjects[i].GetComponent<Rigidbody>().AddExplosionForce(explosionForce, transform.position, explosionRange);
+            }
+        }
+        Collider[] player = Physics.OverlapSphere(transform.position, explosionRange, whatPlayer);
+        for (int i = 0; i < subjects.Length; i++)
+        {
+            if (subjects[i].GetComponent<Rigidbody>())
+            {
+                subjects[i].GetComponent<Rigidbody>().AddExplosionForce(explosionForce / 2, transform.position, explosionRange);
             }
         }
         //if (explosion != null) { Instantiate(explosion, transform.position, Quaternion.identity); }

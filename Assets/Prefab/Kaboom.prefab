@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7790550305481079604}
   - component: {fileID: -8791202737265373750}
   - component: {fileID: -5135201601508486287}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Kaboom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ Rigidbody:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
@@ -153,9 +153,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   explosionRange: 5
-  explosionForce: 200
+  explosionForce: 500
   maxCollisions: 0
-  maxLifetime: 20
+  maxLifetime: 10
   explodeOnTouch: 1
 --- !u!82 &-5135201601508486287
 AudioSource:
